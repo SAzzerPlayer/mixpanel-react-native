@@ -20,6 +20,7 @@ open class MixpanelReactNative: NSObject {
         AutomaticProperties.setAutomaticProperties(properties)
         Mixpanel.initialize(token: token, launchOptions: nil, flushInterval: Constants.DEFAULT_FLUSH_INTERVAL, instanceName: token, automaticPushTracking: Constants.AUTOMATIC_PUSH_TRACKING, optOutTrackingByDefault: optOutTrackingByDefault)
         let instance = MixpanelReactNative.getMixpanelInstance(token)
+        instance?.minimumSessionDuration = 3000 // MARK: - App minimum session duration : SazzerPlayer
         instance?.trackAutomaticEventsEnabled = false
         resolve(true)
     }
